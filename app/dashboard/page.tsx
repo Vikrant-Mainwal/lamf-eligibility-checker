@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import {
   Shield,
@@ -77,7 +77,6 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export default function DashboardPage() {
-  const params = useSearchParams();
   const router = useRouter();
   const [session, setSession] = useState<Session | null>(null);
   const [tab, setTab] = useState<"overview" | "funds">("overview");
