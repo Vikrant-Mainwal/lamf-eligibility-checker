@@ -99,7 +99,7 @@ export default function ChatPage() {
         }));
 
         const res = await axios.post(
-          "http://localhost:5000/api/chat",
+          `${process.env.NEXT_PUBLIC_EXPRESS_SERVICE_URL}/api/chat`,
           { message: msg, portfolio, history },
           { timeout: 30000 },
         );

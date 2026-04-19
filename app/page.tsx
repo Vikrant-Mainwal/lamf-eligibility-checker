@@ -77,12 +77,8 @@ export default function HomePage() {
       form.append("file", file);
 
       setStep("parsing");
-      // const res = await axios.post("/api/loan/upload", form, {
-      //   // headers: { "Content-Type": "multipart/form-data" },
-      //   timeout: 60000,
-      // });
       const res = await axios.post(
-        "http://localhost:5000/api/loan/upload",
+        `${process.env.NEXT_PUBLIC_EXPRESS_SERVICE_URL}/api/loan/upload`,
         form,
         {
           timeout: 60000,
