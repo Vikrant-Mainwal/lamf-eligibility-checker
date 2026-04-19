@@ -169,7 +169,7 @@ export default function ChatPage() {
         </div>
         <Link
           href={`/dashboard?session=${sessionId}`}
-          className="btn-secondary bg-[#B4D3D9] text-lg hidden sm:flex mr-12"
+          className="btn-secondary bg-[#547A95] text-lg hidden sm:flex mr-12"
         >
           View Dashboard
         </Link>
