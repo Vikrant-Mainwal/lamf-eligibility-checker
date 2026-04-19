@@ -20,10 +20,7 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
-import {
-  ValueType,
-  NameType,
-} from "recharts/types/component/DefaultTooltipContent";
+
 
 interface Fund {
   scheme: string;
@@ -117,26 +114,26 @@ export default function DashboardPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <nav className="bg-gray-300 border-b border-gray-100 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+      <nav className="bg-[#2C3947] border-b border-gray-100 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-6 md:gap-12">
           <Link
             href="/"
-            className="text-gray-400 hover:text-gray-600 transition-colors"
+            className="text-gray-200 hover:text-gray-600 transition-colors"
           >
             <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
           </Link>
-          <span className="font-display text-2xl text-brand-800 font-bold">
+          <span className="font-display text-2xl text-brand-800 font-bold text-white">
             LAMF
           </span>
         </div>
         <div className="flex items-center gap-3">
           <div className="text-right hidden sm:block">
-            <p className="text-lg font-medium text-gray-800">{investor.name}</p>
-            <p className="text-md text-gray-500">{investor.pan}</p>
+            <p className="text-lg font-medium text-white">{investor.name}</p>
+            <p className="text-md text-gray-200">{investor.pan}</p>
           </div>
           <Link
             href={`/chat?session=${session.sessionId}`}
-            className="btn-primary flex items-center gap-2 text-lg"
+            className="flex items-center gap-2 text-lg bg-[#547A95] btn-primary"
           >
             <MessageSquare className="w-4 h-4" /> Ask AI Assistant
           </Link>
@@ -402,7 +399,7 @@ export default function DashboardPage() {
           </p>
           <Link
             href={`/chat?session=${session.sessionId}`}
-            className="btn-primary inline-flex items-center gap-2 text-md md:text-lg"
+            className="btn-primary bg-[#547A95] inline-flex items-center gap-2 text-md md:text-lg"
           >
             <MessageSquare className="w-4 h-4" /> Open AI Assistant
           </Link>

@@ -144,20 +144,20 @@ export default function ChatPage() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* NAVBAR */}
-      <nav className="bg-gray-300 border-b border-gray-100 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
+      <nav className="bg-[#2C3947] border-b border-gray-100 px-6 py-4 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-6 md:gap-12">
           <Link
             href={`/dashboard?session=${sessionId}`}
-            className="text-gray-400 hover:text-gray-600"
+            className="text-gray-200 hover:text-gray-600"
           >
             <ArrowLeft className="w-6 h-6 md:w-8 md:h-8" />
           </Link>
-          <div className="flex items-center gap-2.5">
-            <div className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-brand-100 flex items-center justify-center">
-              <Bot className="w-6 h-6 md:w-8 md:h-8 text-brand-600" />
+          <div className="flex items-center gap-2.5 ">
+            <div className="w-6 h-6 md:w-10 md:h-10 rounded-full bg-brand-100 flex items-center justify-center ">
+              <Bot className="w-6 h-6 md:w-8 md:h-8 text-brand-600 text-white" />
             </div>
             <div>
-              <p className="font-semibold text-xs md:text-lg text-gray-800">
+              <p className="font-semibold text-xs md:text-lg  text-white">
                 LAMF Assistant
               </p>
               <p className="text-xs md:text-lg text-emerald-500 flex items-center gap-1">
@@ -169,7 +169,7 @@ export default function ChatPage() {
         </div>
         <Link
           href={`/dashboard?session=${sessionId}`}
-          className="btn-secondary text-lg hidden sm:flex mr-12"
+          className="btn-secondary bg-[#B4D3D9] text-lg hidden sm:flex mr-12"
         >
           View Dashboard
         </Link>
@@ -215,9 +215,9 @@ export default function ChatPage() {
         </aside>
 
         {/* CHAT AREA */}
-        <div className="flex flex-col flex-1">
+        <div className="flex flex-col flex-1 bg-[#E8EDF2]">
           {/* MESSAGES (SCROLL AREA) */}
-          <div className="flex-1 overflow-y-auto px-6 py-6">
+          <div className="flex-1 overflow-y-auto px-6 py-6 mb-3">
             <div className="max-w-3xl mx-auto">
               {messages.map((msg, i) => (
                 <div
@@ -242,14 +242,14 @@ export default function ChatPage() {
                 </div>
               ))}
 
-              {loading && <p>Typing...</p>}
+              {loading && <div className="flex gap-3 mb-5"><Bot /><p>Typing...</p></div>}
               <div ref={bottomRef} />
             </div>
           </div>
 
           {/* INPUT (ALWAYS STICKY) */}
-          <div className="bg-white border-t border-gray-100 px-4 py-4 max-w-3xl mx-auto w-full sticky bottom-0">
-            <div className="flex gap-3 items-center bg-surface-50 border border-gray-200 rounded-2xl px-4 py-2 focus-within:border-brand-400 transition-colors">
+          <div className="bg-[#b4c1c4] border-t border-gray-100 rounded-3xl px-4 py-4 max-w-4xl mx-auto w-full sticky bottom-10">
+            <div className="flex gap-3 items-center bg-white border border-gray-200 rounded-2xl px-4 py-2 focus-within:border-brand-400 transition-colors m">
               <input
                 ref={inputRef}
                 value={input}

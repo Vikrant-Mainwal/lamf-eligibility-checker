@@ -13,6 +13,7 @@ import {
   CheckCircle,
   AlertCircle,
   IndianRupee,
+  LockKeyhole,
 } from "lucide-react";
 
 const STATS = [
@@ -86,7 +87,6 @@ export default function HomePage() {
       );
 
       setStep("calculating");
-      // Store in sessionStorage for dashboard
       sessionStorage.setItem("lamf_session", JSON.stringify(res.data));
       router.push(`/dashboard?session=${res.data.sessionId}`);
     } catch (err: any) {
@@ -112,12 +112,12 @@ export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Nav */}
-      <nav className="bg-gray-300 border-b border-gray-200 px-12 py-5 flex items-center justify-between h-24 sticky top-0">
-        <span className="text-lg md:text-2xl font-semibold text-gray-900 tracking-tight">
+      <nav className="bg-[#2C3947] border-b border-gray-200 px-12 py-5 flex items-center justify-between h-24 sticky top-0">
+        <span className="text-lg md:text-2xl font-semibold text-[#E8EDF2] tracking-tight hidden md:inline-flex items-center gap-2">
           LAMF
         </span>
 
-        <span className="text-gray-600 text-lg md:text-2xl mr-4 md:mr-8">
+        <span className="font-semibold text-[#E8EDF2] text-center md:text-[#dcdfe2] text-lg md:text-2xl mr-4 md:mr-8">
           Loans Against Mutual Funds
         </span>
       </nav>
@@ -126,15 +126,15 @@ export default function HomePage() {
         {/* left part */}
         <div className="space-y-6">
           <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 text-brand-700 text-sm font-medium px-3 py-1.5 rounded-full">
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-500 inline-block animate-pulse" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-500 inline-block animate-pulse text-left" />
             AI-powered · results in 30 seconds
           </div>
-          <h1 className="font-display text-5xl text-gray-900 leading-tight">
+          <h1 className="font-display text-5xl text-gray-900 leading-tight text-center md:text-left">
             Instant loan against
             <br />
             your mutual funds
           </h1>
-          <p className="text-lg text-gray-500 leading-relaxed">
+          <p className="text-lg text-gray-500 leading-relaxed text-justify">
             Upload your CAS statement. Our AI reads your portfolio, calculates
             your maximum loan per fund, and tells you your margin call risk —
             instantly.
@@ -162,7 +162,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="flex gap-8 pt-2 border-t border-gray-100">
+          <div className="flex gap-8 pt-2 bg-rgba(255,255,255,0.6)">
             {STATS.map((s) => (
               <div key={s.label}>
                 <p className="font-semibold text-gray-900">{s.value}</p>
@@ -174,9 +174,6 @@ export default function HomePage() {
         {/* Right: upload card */}
         <div className="card text-left space-y-4">
           <div className="flex items-center gap-2 mb-2">
-            {/* <div className="w-7 h-7 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-semibold text-sm">
-              1
-            </div> */}
             <h2 className="font-semibold text-gray-800 text-md md:text-xl">Upload your CAS PDF</h2>
           </div>
 
@@ -234,7 +231,7 @@ export default function HomePage() {
           )}
 
           {loading && (
-            <div className="flex items-center gap-3 text-brand-600 text-md md:text-lg bg-brand-50 rounded-xl px-4 py-3">
+            <div className="flex gap-3 text-brand-600 text-md md:text-lg bg-brand-50 rounded-xl py-3">
               <div className="flex gap-1">
                 <span className="dot w-2 h-2 rounded-full bg-brand-400 inline-block" />
                 <span className="dot w-2 h-2 rounded-full bg-brand-400 inline-block" />
@@ -247,20 +244,20 @@ export default function HomePage() {
           <button
             onClick={handleUpload}
             disabled={!file || loading}
-            className="btn-primary w-full flex items-center justify-center gap-2"
+            className="btn-primary bg-[#547A95] w-full flex items-center justify-center gap-2"
           >
             {loading ? "Processing..." : "Check Loan Eligibility"}
             {!loading && <ChevronRight className="w-4 h-4" />}
           </button>
 
           <p className="text-md md:text-lg text-center text-gray-600">
-            🔒 Your data is processed securely and never stored beyond your
-            session
+            <span className="flex justify-center"><LockKeyhole  className="" /> Your data is processed securely and never stored beyond your
+            session</span>
           </p>
         </div>
       </section>
 
-      <section className="bg-blue-50 border-y border-gray-100 py-16">
+      <section className="bg-blue-100 border-y border-gray-100 py-16">
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="font-display text-4xl text-gray-900 text-center mb-12">
             How it works
